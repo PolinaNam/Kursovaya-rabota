@@ -61,12 +61,12 @@ class Rational
 
     public static bool operator >=(Rational r1, Rational r2)
     {
-        return r1 > r2  r1 == r2;
+        return r1 > r2 || r1 == r2;
     }
 
     public static bool operator <=(Rational r1, Rational r2)
     {
-        return r1 < r2  r1 == r2;
+        return r1 < r2 || r1 == r2;
     }
 
     public override string ToString()
@@ -91,7 +91,7 @@ class Program
 
             Console.WriteLine("Введите знаменатель первой дроби:");
             int b1;
-            if (!int.TryParse(Console.ReadLine(), out b1)  b1 == 0)
+            if (!int.TryParse(Console.ReadLine(), out b1) || b1 == 0)
             {
                 Console.WriteLine("Некорректный ввод знаменателя первой дроби.");
                 return;
@@ -107,7 +107,7 @@ class Program
 
             Console.WriteLine("Введите знаменатель второй дроби:");
             int b2;
-            if (!int.TryParse(Console.ReadLine(), out b2)  b2 == 0)
+            if (!int.TryParse(Console.ReadLine(), out b2) || b2 == 0)
             {
                 Console.WriteLine("Некорректный ввод знаменателя второй дроби.");
                 return;
