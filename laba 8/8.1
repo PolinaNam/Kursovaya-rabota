@@ -1,0 +1,134 @@
+using System;
+
+class Rational
+{
+    private int numerator;
+    private int denominator;
+
+    public Rational(int a, int b)
+    {
+        numerator = a;
+        denominator = b;
+    }
+
+    public static Rational operator +(Rational r1, Rational r2)
+    {
+        int newNumerator = r1.numerator * r2.denominator + r2.numerator * r1.denominator;
+        int newDenominator = r1.denominator * r2.denominator;
+        return new Rational(newNumerator, newDenominator);
+    }
+
+    public static Rational operator -(Rational r1, Rational r2)
+    {
+        int newNumerator = r1.numerator * r2.denominator - r2.numerator * r1.denominator;
+        int newDenominator = r1.denominator * r2.denominator;
+        return new Rational(newNumerator, newDenominator);
+    }
+
+    public static Rational operator *(Rational r1, Rational r2)
+    {
+        int newNumerator = r1.numerator * r2.numerator;
+        int newDenominator = r1.denominator * r2.denominator;
+        return new Rational(newNumerator, newDenominator);
+    }
+
+    public static Rational operator /(Rational r1, Rational r2)
+    {
+        int newNumerator = r1.numerator * r2.denominator;
+        int newDenominator = r1.denominator * r2.numerator;
+        return new Rational(newNumerator, newDenominator);
+    }
+
+    public static bool operator ==(Rational r1, Rational r2)
+    {
+        return r1.numerator * r2.denominator == r2.numerator * r1.denominator;
+    }
+
+    public static bool operator !=(Rational r1, Rational r2)
+    {
+        return !(r1 == r2);
+    }
+
+    public static bool operator >(Rational r1, Rational r2)
+    {
+        return r1.numerator * r2.denominator > r2.numerator * r1.denominator;
+    }
+
+    public static bool operator <(Rational r1, Rational r2)
+    {
+        return r1.numerator * r2.denominator < r2.numerator * r1.denominator;
+    }
+
+    public static bool operator >=(Rational r1, Rational r2)
+    {
+        return r1 > r2  r1 == r2;
+    }
+
+    public static bool operator <=(Rational r1, Rational r2)
+    {
+        return r1 < r2  r1 == r2;
+    }
+
+    public override string ToString()
+    {
+        return $"{numerator}/{denominator}";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("Введите числитель первой дроби:");
+            int a1;
+            if (!int.TryParse(Console.ReadLine(), out a1))
+            {
+                Console.WriteLine("Некорректный ввод числителя первой дроби.");
+                return;
+            }
+
+            Console.WriteLine("Введите знаменатель первой дроби:");
+            int b1;
+            if (!int.TryParse(Console.ReadLine(), out b1)  b1 == 0)
+            {
+                Console.WriteLine("Некорректный ввод знаменателя первой дроби.");
+                return;
+            }
+
+            Console.WriteLine("Введите числитель второй дроби:");
+            int a2;
+            if (!int.TryParse(Console.ReadLine(), out a2))
+            {
+                Console.WriteLine("Некорректный ввод числителя второй дроби.");
+                return;
+            }
+
+            Console.WriteLine("Введите знаменатель второй дроби:");
+            int b2;
+            if (!int.TryParse(Console.ReadLine(), out b2)  b2 == 0)
+            {
+                Console.WriteLine("Некорректный ввод знаменателя второй дроби.");
+                return;
+            }
+
+            Rational r1 = new Rational(a1, b1);
+            Rational r2 = new Rational(a2, b2);
+
+            Rational sum = r1 + r2;
+            Rational difference = r1 - r2;
+            Rational product = r1 * r2;
+            Rational quotient = r1 / r2;
+
+            Console.WriteLine($"Сумма: {sum}");
+            Console.WriteLine($"Разность: {difference}");
+            Console.WriteLine($"Произведение: {product}");
+            Console.WriteLine($"Частное: {quotient}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Произошла ошибка: {ex.Message}");
+        }
+    }
+}
