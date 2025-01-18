@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "4UK6M+Jnuv7M4ZOitfyb16BljXnRV0/7DrB5vBmA8jT9DKTEKCeuDZ5o/vurvxsp442SV0v2aK2zxIm0BPlQvQ==",
+  "success": true,
+  "projectFilePath": "/home/dmitraks/Projects/Dobrota/Client/Client.csproj",
+  "expectedPackageFiles": [
+    "/home/dmitraks/.nuget/packages/system.io.pipelines/9.0.0/system.io.pipelines.9.0.0.nupkg.sha512",
+    "/home/dmitraks/.nuget/packages/system.net.http.json/9.0.0/system.net.http.json.9.0.0.nupkg.sha512",
+    "/home/dmitraks/.nuget/packages/system.text.encodings.web/9.0.0/system.text.encodings.web.9.0.0.nupkg.sha512",
+    "/home/dmitraks/.nuget/packages/system.text.json/9.0.0/system.text.json.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
